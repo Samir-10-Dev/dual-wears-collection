@@ -1,0 +1,246 @@
+/* ============================================================
+   DUAL WEARS COLLECTION — DESIGN TOKENS
+   ------------------------------------------------------------
+   Palette:
+     --ink        #121110  deep black
+     --charcoal   #262320  charcoal
+     --offwhite   #F6F1E7  warm off-white (base background)
+     --cream      #EFE6D4  cream (section alt background)
+     --beige      #D9CBB0  soft beige (borders / muted fills)
+     --wine       #6E2A3A  muted accent (the "seam" color — the
+                  single thread that ties the two halves of every
+                  Dual Wears pairing together)
+   Type:
+     Display — 'Fraunces' (editorial serif, used sparingly, big)
+     Body/UI — 'Manrope' (clean geometric sans)
+   Signature element: the diagonal "seam" — a thin line that
+   represents two halves joined into one piece. It appears in the
+   hero, section titles, card dividers and hover states.
+   ============================================================ */
+
+:root {
+  --ink: #121110;
+  --charcoal: #262320;
+  --offwhite: #f6f1e7;
+  --cream: #efe6d4;
+  --beige: #d9cbb0;
+  --wine: #6e2a3a;
+  --wine-light: #8a3c4f;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  --container: 1320px;
+  --nav-height: 84px;
+  --nav-height-scrolled: 64px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--offwhite);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--wine);
+  color: var(--offwhite);
+}
+
+:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--wine);
+  font-weight: 700;
+}
+
+/* Reusable "seam" divider — the signature visual motif */
+.seam {
+  position: relative;
+  display: inline-block;
+}
+.seam::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 42px;
+  height: 2px;
+  background: var(--wine);
+  transform-origin: left;
+}
+
+/* Primary button */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 34px;
+  background: var(--ink);
+  color: var(--offwhite);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: color 0.4s var(--ease), transform 0.3s var(--ease);
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--wine);
+  transform: translateX(-101%);
+  transition: transform 0.45s var(--ease);
+  z-index: 0;
+}
+.btn-primary span,
+.btn-primary svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s var(--ease);
+}
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+.btn-primary:hover svg {
+  transform: translateX(4px);
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Ghost / secondary button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--offwhite);
+}
+
+/* Section title component */
+.section-title {
+  max-width: 640px;
+}
+.section-title .eyebrow {
+  display: block;
+  margin-bottom: 14px;
+}
+.section-title h2 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.section-title p {
+  margin-top: 18px;
+  font-size: 1.02rem;
+  color: var(--charcoal);
+  max-width: 480px;
+}
+
+.section-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 56px;
+}

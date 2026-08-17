@@ -1,0 +1,36 @@
+.collection-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.collection-section--light {
+  background: var(--offwhite);
+}
+
+.collection-section--alt {
+  background: var(--cream);
+}
+
+.collection-section--dark {
+  background: var(--ink);
+}
+
+.collection-section--dark .section-title h2,
+.collection-section--dark .section-title p {
+  color: var(--offwhite);
+}
+
+.collection-section--dark .section-title p {
+  color: var(--beige);
+}
+
+.collection-section--dark .social-icons__link {
+  border-color: rgba(246, 241, 231, 0.25);
+  color: var(--offwhite);
+}
+
+@media (max-width: 640px) {
+  .collection-section {
+    padding: 80px 0;
+  }
+}

@@ -1,0 +1,54 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 980px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+/* Unisex variant: slightly different visual rhythm — offset the
+   middle column to differentiate the section without changing
+   the underlying card system. */
+.product-grid--unisex .product-card:nth-child(3n + 2) {
+  transform: translateY(28px);
+}
+@media (max-width: 980px) {
+  .product-grid--unisex .product-card:nth-child(3n + 2) {
+    transform: none;
+  }
+}
+
+/* Boys variant: darker card surface for a bolder tone */
+.product-grid--boys .product-card {
+  background: var(--ink);
+  border-color: var(--charcoal);
+}
+.product-grid--boys .product-card__name,
+.product-grid--boys .product-card__btn {
+  color: var(--offwhite);
+}
+.product-grid--boys .product-card__btn {
+  border-color: var(--offwhite);
+}
+.product-grid--boys .product-card__btn:hover {
+  color: var(--wine-light);
+  border-color: var(--wine-light);
+}
+.product-grid--boys .product-card__desc {
+  color: var(--beige);
+}
+.product-grid--boys .product-card:hover {
+  border-color: transparent;
+}
