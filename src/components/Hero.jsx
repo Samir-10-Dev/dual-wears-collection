@@ -50,7 +50,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          Dual Wears Collection
+          ASSET Wears Collection
         </motion.p>
 
         <motion.h1
@@ -101,7 +101,7 @@ export default function Hero() {
         transition={{ duration: 1.3, delay: 0.2, ease: [0.65, 0, 0.15, 1] }}
       >
         <motion.img
-          src={asset("/images/hero/h2.png")}
+          src={asset("/images/hero/f1.png")}
           alt="Dual Wears Collection lookbook"
           className="hero__image"
           style={{ y: imageY }}
