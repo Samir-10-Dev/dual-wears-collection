@@ -44,36 +44,22 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__inner container">
         <button
-          className="navbar__logo"
-          onClick={() => goTo("home")}
-          aria-label="Dual Wears Collection — Home"
-        >
-          <span className="navbar__logo-word">DUAL</span>
-          <span className="navbar__logo-seam" />
-          <span className="navbar__logo-word navbar__logo-word--light">
-            WEARS
-          </span>
-        </button>
-
-        <nav className="navbar__links">
-          {LINKS.map((link) => (
-            <button
-              key={link.hash}
-              className="navbar__link"
-              onClick={() => goTo(link.hash)}
-            >
-              {link.label}
-            </button>
-          ))}
-        </nav>
-
-        <button
           className="navbar__burger"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
         >
           <HiOutlineMenu size={26} />
         </button>
+
+        <button
+          className="navbar__logo"
+          onClick={() => goTo("home")}
+          aria-label="Dual Wears Collection — Home"
+        >
+          ...
+        </button>
+
+        <nav className="navbar__links">...</nav>
       </div>
 
       <AnimatePresence>
