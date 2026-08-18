@@ -45,12 +45,14 @@ export default function Navbar() {
       <div className="navbar__inner container">
         <button
           className="navbar__burger"
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            window.scrollTo(0, 0);
+            setOpen(true);
+          }}
           aria-label="Open menu"
         >
           <HiOutlineMenu size={26} />
         </button>
-
         <button
           className="navbar__logo"
           onClick={() => goTo("home")}
