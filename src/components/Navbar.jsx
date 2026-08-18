@@ -61,7 +61,7 @@ export default function Navbar() {
           onClick={() => goTo("home")}
           aria-label="Dual Wears Collection — Home"
         >
-          <span className="navbar__logo-word">DUAL</span>
+          <span className="navbar__logo-word">ASSET</span>
           <span className="navbar__logo-seam" />
           <span className="navbar__logo-word navbar__logo-word--light">
             WEARS
