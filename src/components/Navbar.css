@@ -8,7 +8,10 @@
   display: flex;
   align-items: center;
   background: transparent;
-  transition: height 0.4s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  transition:
+    height 0.4s var(--ease),
+    background 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
 }
 
 .navbar--scrolled {
@@ -69,7 +72,7 @@
 }
 
 .navbar__link::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
